@@ -1,0 +1,37 @@
+<form action="add" method="POST">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+        
+        <label for="{{ form.subject.id_for_label }}">Name:</label>
+        {{ form.name }}
+    </div>
+    <div class="fieldWrapper">
+        
+        <label for="{{ form.subject.id_for_label }}">Gender:</label>
+        {{ form.gender }}
+    </div>
+    <div class="fieldWrapper" >
+        
+        <label for="{{ form.subject.id_for_label }}">Date of birth:</label>
+        {{ form.dob }}
+    </div>
+    <div class="fieldWrapper">
+        
+        <label for="{{ form.subject.id_for_label }}">Date Tested:</label>
+        {{ form.date_tested }}
+    </div>
+    <div class="fieldWrapper">
+        
+        <label for="{{ form.subject.id_for_label }}">Test Results:</label>
+        {{ form.test_result }}
+    </div>
+    <div class="fieldWrapper">
+        
+        <label for="{{ form.subject.id_for_label }}">Picked test Results?:</label>
+        {{ form.picked_test }}
+    </div>
+</div>
+
+
+    <input type="submit" value="Submit">
+</form>
