@@ -1,0 +1,29 @@
+{
+  "dataSet": "LGkEZSNXgPV",
+  "completeDate": "2020-09-23",
+  "period": "20200923",
+  "orgUnit": "qKzosKQPl6G",
+  "attributeOptionCombo": "HllvX50cXC0",
+  "dataValues": [
+    {
+      "dataElement": "VG8mdCWgnW7", 
+      "categoryOptionCombo": "aC4po8Ig28f", 
+      "value": "31"
+    },
+    {
+      "dataElement": "VG8mdCWgnW7", 
+      "categoryOptionCombo": "BxHou2UUdVp", 
+      "value": "32"
+    },
+    {
+      "dataElement": "VG8mdCWgnW7", 
+      "categoryOptionCombo": "qNdJ7YZNEcL", 
+      "value": "33"
+    },
+    {
+      "dataElement": "VG8mdCWgnW7", 
+      "categoryOptionCombo": "jFVb0VKnW2d", 
+      "value": "32"
+    }
+  ]
+}

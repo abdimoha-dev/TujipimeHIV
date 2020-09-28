@@ -1,40 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="add" method="POST">
-    {% csrf_token %}
-    <div class="fieldWrapper">
+<div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter" style="align-items: center;">
+        <form action="add" method="POST">
+            {% csrf_token %}
+            Name: {{ form.name }}<br>
+            Gender: {{ form.gender }}<br>
+            Date of Birth: {{ form.dob }}<br>
+            Date tested: {{ form.date_tested }}<br>
+            Test Result: {{ form.test_result }}<br>
+            Result collected: {{ form.picked_test }}
+            <br>
         
-        <label for="{{ form.subject.id_for_label }}">Name:</label>
-        {{ form.name }}
-    </div>
-    <div class="fieldWrapper">
         
-        <label for="{{ form.subject.id_for_label }}">Gender:</label>
-        {{ form.gender }}
-    </div>
-    <div class="fieldWrapper" >
-        
-        <label for="{{ form.subject.id_for_label }}">Date of birth:</label>
-        {{ form.dob }}
-    </div>
-    <div class="fieldWrapper">
-        
-        <label for="{{ form.subject.id_for_label }}">Date Tested:</label>
-        {{ form.date_tested }}
-    </div>
-    <div class="fieldWrapper">
-        
-        <label for="{{ form.subject.id_for_label }}">Test Results:</label>
-        {{ form.test_result }}
-    </div>
-    <div class="fieldWrapper">
-        
-        <label for="{{ form.subject.id_for_label }}">Picked test Results?:</label>
-        {{ form.picked_test }}
+            <input type="submit" value="Submit">
+        </form>
     </div>
 </div>
 
-
-    <input type="submit" value="Submit">
-</form>
 {% endblock content %}

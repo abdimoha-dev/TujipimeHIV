@@ -7,6 +7,7 @@ class Tests(models.Model):
     name = models.CharField(max_length=200)
     gender =models.CharField(max_length=30)
     dob = models.DateField('date of birth')
+    age = models.IntegerField(blank=True, null=True)
     date_tested = models.DateField('date tested')
     test_result = models.CharField(max_length=30)
     picked_test = models.CharField(max_length=3, default=False)
