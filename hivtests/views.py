@@ -12,7 +12,8 @@ import time
 
 
 def update_dhis():
-    total_number_tested = Tests.objects.filter(date_tested=datetime.now()).count()
+    total_number_tested = Tests.objects.filter(
+        date_tested=datetime.now()).count()
     # positve  children
     tested_positive_male_child = Tests.objects.filter(
         test_result='Positive', gender='Male', age__lt=15, date_tested=date.today()).count()
@@ -59,14 +60,16 @@ def update_dhis():
         picked_test='Yes', gender='Male', age__gte=15, date_tested=date.today()).count()
 
     # print(tested_positive_male_child)
-    completdat = date.today().strftime("%Y")+"-"+date.today().strftime("%m")+"-"+date.today().strftime("%d")
-    prd =date.today().strftime("%Y")+date.today().strftime("%m")+date.today().strftime("%d")
+    completdat = date.today().strftime("%Y")+"-"+date.today().strftime("%m") + \
+        "-"+date.today().strftime("%d")
+    prd = date.today().strftime("%Y")+date.today().strftime("%m") + \
+        date.today().strftime("%d")
 
     data = {}
     datasetID = "LGkEZSNXgPV"
     completeDate = completdat
     period = prd
-    orgUnit = "qKzosKQPl6G"
+    orgUnit = "bzOfj0iwfDH"
     attributeOptionCombo = "HllvX50cXC0"
 
     data["dataSet"] = datasetID
@@ -165,24 +168,26 @@ def update_dhis():
         "categoryOptionCombo": "jFVb0VKnW2d",  # male adult
         "value": picked_results_male_adult
     })
-    
+
     # json_data = json.dumps(data)
-    with open('data.json','w') as outfile:
-        json.dump(data,outfile)
+    with open('data.json', 'w') as outfile:
+        json.dump(data, outfile)
 
     headers = {
         'Content-Type': 'application/json',
     }
 
     data = open('data.json')
-    response = requests.post('http://35.194.15.145:8080/api/dataValueSets', headers=headers, data=data, auth=('Super', 'Abdymohammed@123'))
-    
+    response = requests.post('http://35.194.15.145:8080/api/dataValueSets',
+                             headers=headers, data=data, auth=('Super', 'Abdymohammed@123'))
+
     print(response.content)
-  
+
 
 while 0:
     schedule.run_pending()
     time.sleep(1)
+
 
 def index(request):
     # all_tests = Tests.objects.order_by('date_tested')[:5]
@@ -210,7 +215,7 @@ def add_test(request):
             details = Tests(name=name, gender=gender, dob=dob, date_tested=date_tested,
                             test_result=test_result, picked_test=picked_test, age=age)
             details.save()
-            return HttpResponse('/thanks/')
+            return render(request, "add_user.html", {'form': form})
 
     else:
         form = NameForm()
@@ -271,122 +276,24 @@ def get_daily_results(request):
         picked_results_male_adult = Tests.objects.filter(
             picked_test='Yes', gender='Male', age__gte=15, date_tested=date.today()).count()
 
-        # print(tested_positive_male_child)
-        completdat = date.today().strftime("%Y")+"-"+date.today().strftime("%m")+"-"+date.today().strftime("%d")
-        month=date.today().strftime("%m")
-        prd =date.today().strftime("%Y")+date.today().strftime("%m")+date.today().strftime("%d")
-        print(completdat)
-        print(prd)
-        # x="20200923"
-        # print(x)
+        context = {
+            'picked_results_male_adult': picked_results_male_adult,
+            'picked_results_female_adult': picked_results_female_adult,
+            'picked_results_female_child': picked_results_female_child,
+            'picked_results_male_child': picked_results_male_child,
+            'total_tested_female_adult': total_tested_female_adult,
+            'total_tested_male_adult': total_tested_male_adult,
+            'total_tested_female_child': total_tested_female_child,
+            'total_tested_male_child': total_tested_male_child,
+            'tested_positive_male_child': tested_positive_male_child,
+            'tested_positive_female_child': tested_positive_female_child,
+            'tested_negative_male_child': tested_negative_male_child,
+            'tested_negative_female_child': tested_negative_female_child,
+            'tested_positive_male_adult': tested_positive_male_adult,
+            'tested_positive_female_adult': tested_positive_female_adult,
+            'tested_negative_male_adults': tested_negative_male_adults,
+            'tested_negative_female_adults': tested_negative_female_adults
 
-        data = {}
-        datasetID = "LGkEZSNXgPV"
-        completeDate = "2020-09-12"
-        period = "20200923"
-        orgUnit = "qKzosKQPl6G"
-        attributeOptionCombo = "HllvX50cXC0"
+        }
 
-        data["dataSet"] = datasetID
-        data["completeDate"] = completeDate
-        data["period"] = period
-        data["orgUnit"] = orgUnit
-        data["attributeOptionCombo"] = attributeOptionCombo
-        data["dataValues"] = []
-
-        # total tested
-        data["dataValues"].append({
-            "dataElement": "VG8mdCWgnW7",
-            "categoryOptionCombo": "aC4po8Ig28f",  # female adult
-            "value": total_tested_female_adult
-        })
-
-        data["dataValues"].append({
-            "dataElement": "VG8mdCWgnW7",
-            "categoryOptionCombo": "BxHou2UUdVp",  # female child
-            "value": total_tested_female_child
-        })
-
-        data["dataValues"].append({
-            "dataElement": "VG8mdCWgnW7",
-            "categoryOptionCombo": "qNdJ7YZNEcL",  # male child
-            "value": total_tested_male_child
-        })
-        data["dataValues"].append({
-            "dataElement": "VG8mdCWgnW7",
-            "categoryOptionCombo": "jFVb0VKnW2d",  # male adults
-            "value": total_tested_male_adult
-        })
-        # tested positive
-        data["dataValues"].append({
-            "dataElement": "rMJ9vmLLLAW",
-            "categoryOptionCombo": "aC4po8Ig28f",  # female adult
-            "value": tested_positive_female_adult
-        })
-
-        data["dataValues"].append({
-            "dataElement": "rMJ9vmLLLAW",
-            "categoryOptionCombo": "BxHou2UUdVp",  # female child
-            "value": tested_positive_female_adult
-        })
-        data["dataValues"].append({
-            "dataElement": "rMJ9vmLLLAW",
-            "categoryOptionCombo": "qNdJ7YZNEcL",  # male child
-            "value": tested_positive_male_child
-        })
-
-        data["dataValues"].append({
-            "dataElement": "rMJ9vmLLLAW",
-            "categoryOptionCombo": "jFVb0VKnW2d",  # male adult
-            "value": tested_positive_male_adult
-        })
-        # tested negative
-        data["dataValues"].append({
-            "dataElement": "Nqksl9Su4zp",
-            "categoryOptionCombo": "aC4po8Ig28f",  # female adult
-            "value": tested_negative_female_adults
-        })
-        data["dataValues"].append({
-            "dataElement": "Nqksl9Su4zp",
-            "categoryOptionCombo": "BxHou2UUdVp",  # female child
-            "value": tested_negative_female_child
-        })
-
-        data["dataValues"].append({
-            "dataElement": "Nqksl9Su4zp",
-            "categoryOptionCombo": "qNdJ7YZNEcL",  # male child
-            "value": tested_negative_male_child
-        })
-        data["dataValues"].append({
-            "dataElement": "Nqksl9Su4zp",
-            "categoryOptionCombo": "jFVb0VKnW2d",  # male adult
-            "value": tested_negative_male_adults
-        })
-        # picked results
-        data["dataValues"].append({
-            "dataElement": "lZomvx4sJLP",
-            "categoryOptionCombo": "aC4po8Ig28f",  # female adult
-            "value": picked_results_female_adult
-        })
-        data["dataValues"].append({
-            "dataElement": "lZomvx4sJLP",
-            "categoryOptionCombo": "BxHou2UUdVp",  # female child
-            "value": picked_results_female_child
-        })
-        data["dataValues"].append({
-            "dataElement": "lZomvx4sJLP",
-            "categoryOptionCombo": "qNdJ7YZNEcL",  # male child
-            "value": picked_results_male_child
-        })
-        data["dataValues"].append({
-            "dataElement": "lZomvx4sJLP",
-            "categoryOptionCombo": "jFVb0VKnW2d",  # male adult
-            "value": picked_results_male_adult
-        })
-        
-        # json_data = json.dumps(data)
-        with open('data.json','w') as outfile:
-            json.dump(data,outfile)
-        
-
-    return HttpResponse('/thanks/')
+    return render(request, 'raw_data.html', context)

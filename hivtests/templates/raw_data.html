@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter" style="align-items: center;">
+        <table>
+            <tr>
+                <th></th>
+              <th colspan="2">Children</th>
+              <th colspan="2">Adult</th>
+              
+            </tr>
+            <tr>
+    
+              <td>Male</td>
+              <td>Female</td>
+              <td>Male</td>
+              <td>Female</td>
+            </tr>
+            <tr>
+            <td>Tested</td>
+              <td>{{total_tested_male_child}}</td>
+              <td>{{total_tested_female_child}}</td>
+              <td>{{total_tested_male_adult}}</td>
+              <td>{{total_tested_female_adult}}</td>
+            </tr>
+            <tr>
+                <td>Picked Results</td>
+              <td>{{picked_results_male_child}}</td>
+              <td>{{picked_results_female_child}}</td>
+              <td>{{picked_results_male_adult}}</td>
+              <td>{{picked_results_female_adult}}</td>
+            </tr>
+            <tr>
+                <td>Positive</td>
+              <td>{{tested_positive_male_child}}</td>
+              <td>{{tested_positive_female_child}}</td>
+              <td>{{tested_positive_male_adult}}</td>
+              <td>{{tested_positive_female_adult}}</td>
+            </tr>
+            <tr>
+                <td>Negative</td>
+              <td>{{tested_negative_male_child}}</td>
+              <td>{{tested_negative_female_child}}</td>
+              <td>{{tested_negative_male_adults}}</td>
+              <td>{{ tested_negative_female_adults}}</td>
+            </tr>
+
+          </table>
+        
+    </div>
+</div>
+
+{% endblock content %}

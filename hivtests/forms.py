@@ -1,5 +1,5 @@
 from django import forms
-GENDER_CHOICES = (('Male', 'Male'), ('Female', 'Female'))
+GENDER_CHOICES = (('Male', 'Male'), ('Female', 'Female'), ('Other','Other'))
 TEST_CHOICES = (('Positive', 'Positive'), ('Negative',
                                            'Negative'), ('Inconclusive', 'Inconclusive'))
 PICKED_RESULTS = (('Yes', 'Yes'), ('No', 'No'))
