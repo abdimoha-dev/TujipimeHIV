@@ -184,9 +184,9 @@ def update_dhis():
     print(response.content)
 
 
-while 0:
-    schedule.run_pending()
-    time.sleep(1)
+# while 0:
+#     schedule.run_pending()
+#     time.sleep(1)
 
 
 def index(request):
@@ -195,7 +195,7 @@ def index(request):
     return render(request, "base.html")
 
 
-#@login_required
+@login_required(login_url='/login/')
 def add_test(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
@@ -221,7 +221,7 @@ def add_test(request):
         form = NameForm()
     return render(request, "add_user.html", {'form': form})
 
-
+@login_required(login_url='/login/')
 def get_daily_results(request):
     if request.method == 'GET':
         # total_number_tested(age/male/female)
