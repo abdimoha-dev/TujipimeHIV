@@ -195,7 +195,7 @@ def index(request):
     return render(request, "base.html")
 
 
-@login_required
+#@login_required
 def add_test(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
