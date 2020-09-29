@@ -1,2 +1,2 @@
 # TujipimeHIV
-Use Python3 and django 3.11
+# Run python3 manage.py crontab add
