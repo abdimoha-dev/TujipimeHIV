@@ -7,7 +7,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 import json
 import requests
-import schedule
+
 import time
 
 
