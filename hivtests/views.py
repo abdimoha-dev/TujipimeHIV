@@ -59,11 +59,13 @@ def update_dhis():
         picked_test='Yes', gender='Male', age__gte=15, date_tested=date.today()).count()
 
     # print(tested_positive_male_child)
+    completdat = date.today().strftime("%Y")+"-"+date.today().strftime("%m")+"-"+date.today().strftime("%d")
+    prd =date.today().strftime("%Y")+date.today().strftime("%m")+date.today().strftime("%d")
 
     data = {}
     datasetID = "LGkEZSNXgPV"
-    completeDate = "2020-09-09"
-    period = "20200909"
+    completeDate = completdat
+    period = prd
     orgUnit = "qKzosKQPl6G"
     attributeOptionCombo = "HllvX50cXC0"
 
@@ -176,7 +178,11 @@ def update_dhis():
     response = requests.post('http://35.194.15.145:8080/api/dataValueSets', headers=headers, data=data, auth=('Super', 'Abdymohammed@123'))
     
     print(response.content)
+  
 
+while 0:
+    schedule.run_pending()
+    time.sleep(1)
 
 def index(request):
     # all_tests = Tests.objects.order_by('date_tested')[:5]
@@ -266,10 +272,17 @@ def get_daily_results(request):
             picked_test='Yes', gender='Male', age__gte=15, date_tested=date.today()).count()
 
         # print(tested_positive_male_child)
+        completdat = date.today().strftime("%Y")+"-"+date.today().strftime("%m")+"-"+date.today().strftime("%d")
+        month=date.today().strftime("%m")
+        prd =date.today().strftime("%Y")+date.today().strftime("%m")+date.today().strftime("%d")
+        print(completdat)
+        print(prd)
+        # x="20200923"
+        # print(x)
 
         data = {}
         datasetID = "LGkEZSNXgPV"
-        completeDate = "2020-09-23"
+        completeDate = "2020-09-12"
         period = "20200923"
         orgUnit = "qKzosKQPl6G"
         attributeOptionCombo = "HllvX50cXC0"
