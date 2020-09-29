@@ -1,0 +1,89 @@
+{
+    "dataSet": "LGkEZSNXgPV",
+    "completeDate": "2020-09-15",
+    "period": "20200915",
+    "orgUnit": "qKzosKQPl6G",
+    "attributeOptionCombo": "HllvX50cXC0",
+    "dataValues": [
+        {
+            "dataElement": "VG8mdCWgnW7",
+            "categoryOptionCombo": "aC4po8Ig28f",
+            "value": 0
+        },
+        {
+            "dataElement": "VG8mdCWgnW7",
+            "categoryOptionCombo": "BxHou2UUdVp",
+            "value": 0
+        },
+        {
+            "dataElement": "VG8mdCWgnW7",
+            "categoryOptionCombo": "qNdJ7YZNEcL",
+            "value": 1
+        },
+        {
+            "dataElement": "VG8mdCWgnW7",
+            "categoryOptionCombo": "jFVb0VKnW2d",
+            "value": 1
+        },
+        {
+            "dataElement": "rMJ9vmLLLAW",
+            "categoryOptionCombo": "aC4po8Ig28f",
+            "value": 0
+        },
+        {
+            "dataElement": "rMJ9vmLLLAW",
+            "categoryOptionCombo": "BxHou2UUdVp",
+            "value": 0
+        },
+        {
+            "dataElement": "rMJ9vmLLLAW",
+            "categoryOptionCombo": "qNdJ7YZNEcL",
+            "value": 0
+        },
+        {
+            "dataElement": "rMJ9vmLLLAW",
+            "categoryOptionCombo": "jFVb0VKnW2d",
+            "value": 1
+        },
+        {
+            "dataElement": "Nqksl9Su4zp",
+            "categoryOptionCombo": "aC4po8Ig28f",
+            "value": 0
+        },
+        {
+            "dataElement": "Nqksl9Su4zp",
+            "categoryOptionCombo": "BxHou2UUdVp",
+            "value": 0
+        },
+        {
+            "dataElement": "Nqksl9Su4zp",
+            "categoryOptionCombo": "qNdJ7YZNEcL",
+            "value": 1
+        },
+        {
+            "dataElement": "Nqksl9Su4zp",
+            "categoryOptionCombo": "jFVb0VKnW2d",
+            "value": 0
+        },
+        {
+            "dataElement": "lZomvx4sJLP",
+            "categoryOptionCombo": "aC4po8Ig28f",
+            "value": 0
+        },
+        {
+            "dataElement": "lZomvx4sJLP",
+            "categoryOptionCombo": "BxHou2UUdVp",
+            "value": 0
+        },
+        {
+            "dataElement": "lZomvx4sJLP",
+            "categoryOptionCombo": "qNdJ7YZNEcL",
+            "value": 1
+        },
+        {
+            "dataElement": "lZomvx4sJLP",
+            "categoryOptionCombo": "jFVb0VKnW2d",
+            "value": 1
+        }
+    ]
+}

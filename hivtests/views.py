@@ -7,7 +7,25 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout as django_logout
 import json
+import requests
+import schedule
+import time
 
+
+# def update_dhis():
+#     headers = {
+#         'Content-Type': 'application/json',
+#     }
+
+#     data = open('data.json')
+#     response = requests.post('http://35.194.15.145:8080/api/dataValueSets', headers=headers, data=data, auth=('Super', 'Abdymohammed@123'))
+#     print(response.content)
+    
+# schedule.every().day.at("10:30").do(update_dhis)
+
+# while 1:
+#     schedule.run_pending()
+#     time.sleep(1)
 
 def login(request):
 
@@ -33,7 +51,7 @@ def index(request):
     return render(request, "base.html")
 
 
-# @login_required
+@login_required
 def add_test(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
@@ -220,7 +238,9 @@ def get_daily_results(request):
             "value": picked_results_male_adult
         })
         
-        json_data = json.dumps(data)
-        print(json_data)
+        #json_data = json.dumps(data)
+        with open('data.json','w') as outfile:
+            json.dump(data,outfile)
+        
 
     return HttpResponse('/thanks/')
