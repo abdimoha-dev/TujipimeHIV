@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab'
     
 ]
 
@@ -122,3 +123,7 @@ USE_TZ = True
 STATIC_URL = '/hivtests/static/'
 
 LOGIN_REDIRECT_URL = "/add"
+
+CRONJOBS = [
+   ('*/1 * * * *','hivtests.cron.schedule') 
+]
