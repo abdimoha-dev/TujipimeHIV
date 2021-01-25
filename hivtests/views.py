@@ -12,6 +12,7 @@ import time
 
 
 def update_dhis():
+    # date = Tests.objects.get()
     total_number_tested = Tests.objects.filter(
         date_tested=datetime.now()).count()
     # positve  children
